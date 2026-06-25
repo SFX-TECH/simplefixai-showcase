@@ -9,7 +9,7 @@
 ![AI](https://img.shields.io/badge/AI-local%20LLM%20%C2%B7%20offline-7a5cff)
 ![License](https://img.shields.io/badge/license-proprietary-8a8a8a)
 
-**Live:** [simplefixai.com](https://simplefixai.com)  ·  **Source is private by design** — this repo is a public showcase of the product and its architecture.
+**Live:** [simplefixai.com](https://simplefixai.com)  ·  **Source is private by design**: this repo is a public showcase of the product and its architecture.
 
 ![SimpleFix AI](assets/hero.png)
 
@@ -26,12 +26,12 @@ There are ~1.4 billion Windows PCs in use. When one breaks, people either paste 
 ## What it does
 Windows already ships with the tools to repair itself. SimpleFix AI is the reasoning layer that was missing.
 
-1. **Describe it or scan it** — type "my wifi isn't working," or hit Scan.
-2. **Diagnose** — collectors gather hundreds of system signals in well under a minute.
-3. **Plan the fix** — a local AI model selects the right repair modules and sequences them in a safe, dependency-aware order.
-4. **Snapshot, then fix** — a mandatory restore point is created before anything changes.
-5. **Verify + explain** — it confirms the fix worked and tells you, in plain English, what it did.
-6. **Undo anything** — one click rolls the change back.
+1. **Describe it or scan it**: type "my wifi isn't working," or hit Scan.
+2. **Diagnose**: collectors gather hundreds of system signals in well under a minute.
+3. **Plan the fix**: a local AI model selects the right repair modules and sequences them in a safe, dependency-aware order.
+4. **Snapshot, then fix**: a mandatory restore point is created before anything changes.
+5. **Verify + explain**: it confirms the fix worked and tells you, in plain English, what it did.
+6. **Undo anything**: one click rolls the change back.
 
 A **multi-tier repair engine** tries the safest fix first and escalates only if symptoms persist, each tier with its own snapshot. A background **watchdog** can monitor the machine and auto-resolve safe issues behind strict safety gates.
 
@@ -52,7 +52,7 @@ flowchart TD
     EXE --> V["Verify it worked"]
     V --> EXP["Explain in plain English"]
     EXE -. one-click .-> UNDO["Reversible undo"]
-    subgraph SB ["Safety boundary — the AI cannot run arbitrary code"]
+    subgraph SB ["Safety boundary, the AI cannot run arbitrary code"]
       AI
       LIB
     end
@@ -62,9 +62,9 @@ flowchart TD
 | Layer | Stack |
 |---|---|
 | Desktop shell | Tauri 2 + React 19 + Vite (~10 MB installer) |
-| Diagnostic engine | Python 3.11 (WMI, subprocess), shipped as a PyInstaller sidecar — no Python required for users |
+| Diagnostic engine | Python 3.11 (WMI, subprocess), shipped as a PyInstaller sidecar, no Python required for users |
 | Fix scripts | PowerShell 5.1 (ships with every Windows, zero deps) |
-| AI | Local GGUF model via llama.cpp — RAM-aware tiers, fully offline |
+| AI | Local GGUF model via llama.cpp, RAM-aware tiers, fully offline |
 | State | SQLite WAL (snapshots, reports, watchdog) |
 | Cloud | Supabase + Cloudflare Workers + R2 (telemetry + releases only; not required to repair) |
 | CI/CD | GitHub Actions → signed Tauri build |
