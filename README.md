@@ -13,6 +13,11 @@
 
 ![SimpleFix AI](assets/hero.png)
 
+## Demo
+<video src="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo.mp4" poster="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo-poster.jpg" controls muted loop width="720"></video>
+
+*Player not loading on your device? [Watch the demo](https://github.com/SFX-TECH/simplefixai-showcase/blob/main/assets/demo.mp4).*
+
 ---
 
 ## The problem
@@ -23,7 +28,7 @@ Windows already ships with the tools to repair itself. SimpleFix AI is the reaso
 
 1. **Describe it or scan it** — type "my wifi isn't working," or hit Scan.
 2. **Diagnose** — collectors gather 140+ signals about the machine in well under a minute.
-3. **Plan the fix** — a local AI model selects the right repair modules in the right order (DISM before SFC, winsock before DNS, never defrag an SSD).
+3. **Plan the fix** — a local AI model selects the right repair modules and sequences them in a safe, dependency-aware order.
 4. **Snapshot, then fix** — a mandatory restore point is created before anything changes.
 5. **Verify + explain** — it confirms the fix worked and tells you, in plain English, what it did.
 6. **Undo anything** — one click rolls the change back.
