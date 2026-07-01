@@ -26,6 +26,8 @@ There are ~1.4 billion Windows PCs in use. When one breaks, people either paste 
 ## What it does
 Windows already ships with the tools to repair itself. SimpleFix AI is the reasoning layer that was missing.
 
+> **In plain terms:** A local AI model runs on your own computer, with no internet needed, and works out what is wrong. Before it changes anything it saves a restore point, so you can put things back the way they were.
+
 1. **Describe it or scan it**: type "my wifi isn't working," or hit Scan.
 2. **Diagnose**: collectors gather hundreds of system signals in well under a minute.
 3. **Plan the fix**: a local AI model selects the right repair modules and sequences them in a safe, dependency-aware order.
@@ -39,9 +41,15 @@ A **multi-tier repair engine** tries the safest fix first and escalates only if 
 SimpleFix AI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. For a tool that touches people's machines, trustworthiness is the product.
 
 ## The idea that makes it safe (and patent-pending)
+
+> **In plain terms:** The AI is not allowed to type its own commands. It can only pick from a set of pre-approved, tested fixes, so a bad instruction or a model mistake cannot harm your computer.
+
 The AI **never writes or runs raw commands.** It can only choose from an **extensive library of pre-written, safety-bounded, reversible repair modules**, and it must explain each step before it executes. The model decides *what* to do; a bounded layer controls *how*. A prompt-injection attempt or a model mistake therefore **cannot** damage the machine. This AI diagnostic-orchestration method is covered by a **provisional patent**.
 
 ## How it's built
+
+> **In plain terms:** The diagram shows the steps from your request to a verified fix. The AI stays inside a safety boundary, where it can choose a repair but cannot run code of its own.
+
 ```mermaid
 flowchart TD
     U["User: describe the problem · or click Scan"] --> C["Collectors gather hundreds of signals · &lt;1 min"]
@@ -59,6 +67,9 @@ flowchart TD
 ```
 
 ## Tech
+
+> **In plain terms:** This is the list of building blocks the app is made from. The AI model runs on your machine, so repairs work with no internet connection.
+
 | Layer | Stack |
 |---|---|
 | Desktop shell | Tauri 2 + React 19 + Vite (~10 MB installer) |
