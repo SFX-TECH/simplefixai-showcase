@@ -2,7 +2,7 @@
 
 > AI-powered Windows repair that diagnoses the problem, applies the right fixes in the right order, explains every step in plain English, and makes every change reversible. Fully offline.
 
-![Status](https://img.shields.io/badge/status-shipping%20%C2%B7%20v1.7.7-2ea44f)
+![Status](https://img.shields.io/badge/status-shipping%20%C2%B7%20v1.7.9-2ea44f)
 ![Patent](https://img.shields.io/badge/patent-provisional%20pending-3b5bdb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a66c2)
 ![Tests](https://img.shields.io/badge/tests-thousands%20passing-2ea44f)
@@ -90,7 +90,7 @@ flowchart TD
 - snapshot before every fix · one-click undo
 
 ## Status
-**v1.7.7, shipping.** Live at **[simplefixai.com](https://simplefixai.com)**. Built: multi-tier diagnostic + repair engine, local-AI diagnosis with rule-based fallback, natural-language chat, snapshot/undo, background watchdog, reporting (incl. PDF), technician mode, installer-integrity verification, telemetry + conversion-funnel pipeline, and a signed CI/CD release pipeline.
+**v1.7.9, shipping.** Live at **[simplefixai.com](https://simplefixai.com)**. Built: multi-tier diagnostic + repair engine, local-AI diagnosis with rule-based fallback, natural-language chat, snapshot/undo, background watchdog, reporting (incl. PDF), technician mode, installer-integrity verification, telemetry + conversion-funnel pipeline, and a signed CI/CD release pipeline.
 
 ---
 
