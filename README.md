@@ -1,4 +1,4 @@
-# SimpleFix AI™
+# SimpleFixAI™
 
 > AI-powered Windows repair that diagnoses the problem, applies the right fixes in the right order, explains every step in plain English, and makes every change reversible. Fully offline.
 
@@ -12,7 +12,7 @@
 
 **Live:** [simplefixai.com](https://simplefixai.com)  ·  **Source is private by design**: this repo is a public showcase of the product and its architecture.
 
-![SimpleFix AI](assets/hero.png)
+![SimpleFixAI](assets/hero.png)
 
 ## Demo
 <video src="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo.mp4" poster="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo-poster.jpg" controls muted loop width="720"></video>
@@ -23,7 +23,7 @@
 
 ## See it live
 
-[![SimpleFix AI, live at simplefixai.com](assets/site.png)](https://simplefixai.com)
+[![SimpleFixAI, live at simplefixai.com](assets/site.png)](https://simplefixai.com)
 
 *The product is live at [simplefixai.com](https://simplefixai.com), free while in public beta.*
 
@@ -31,7 +31,7 @@
 There are ~1.4 billion Windows PCs in use. When one breaks, people either paste terminal commands they don't understand or install legacy "cleaner" utilities that run static, decade-old scripts: they can't reason about the actual problem, can't explain what they're doing, and can't undo it when they make things worse. The whole category trades on hope.
 
 ## What it does
-Windows already ships with the tools to repair itself. SimpleFix AI is the reasoning layer that was missing.
+Windows already ships with the tools to repair itself. SimpleFixAI is the reasoning layer that was missing.
 
 > **In plain terms:** A local AI model runs on your own computer, with no internet needed, and works out what is wrong. Before it changes anything it saves a restore point, so you can put things back the way they were.
 
@@ -45,7 +45,7 @@ Windows already ships with the tools to repair itself. SimpleFix AI is the reaso
 A **multi-tier repair engine** tries the safest fix first and escalates only if symptoms persist, each tier with its own snapshot. A background **watchdog** can monitor the machine and auto-resolve safe issues behind strict safety gates.
 
 ## Honest by design
-SimpleFix AI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. For a tool that touches people's machines, trustworthiness is the product.
+SimpleFixAI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. For a tool that touches people's machines, trustworthiness is the product.
 
 ## The idea that makes it safe (and patent-pending)
 
@@ -104,4 +104,4 @@ flowchart TD
 Built by **Jesse Jolly** · [SFX Tech Innovation](https://sfxtechinnovation.com) · [LinkedIn](https://linkedin.com/in/jessegjolly)
 
 *Source code is private and proprietary. This repository showcases the product and its architecture only.*
-*SimpleFix AI™ is a trademark of SFX Tech Innovation LLC.*
+*SimpleFixAI™ is a trademark of SFX Tech Innovation LLC.*
