@@ -3,7 +3,7 @@
 > AI-powered Windows repair that diagnoses the problem, applies the right fixes in the right order, explains every step in plain English, and makes every change reversible. Fully offline.
 
 [![Live](https://img.shields.io/badge/live-simplefixai.com-2ea44f)](https://simplefixai.com)
-![Status](https://img.shields.io/badge/status-shipping%20%C2%B7%20v1.7.9-2ea44f)
+![Status](https://img.shields.io/badge/status-shipping-2ea44f)
 ![Patent](https://img.shields.io/badge/patent-provisional%20pending-3b5bdb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a66c2)
 ![Tests](https://img.shields.io/badge/tests-thousands%20passing-2ea44f)
@@ -20,6 +20,12 @@
 *Player not loading on your device? [Watch the demo](https://github.com/SFX-TECH/simplefixai-showcase/blob/main/assets/demo.mp4).*
 
 ---
+
+## See it live
+
+[![SimpleFix AI, live at simplefixai.com](assets/site.png)](https://simplefixai.com)
+
+*The product is live at [simplefixai.com](https://simplefixai.com), free while in public beta.*
 
 ## The problem
 There are ~1.4 billion Windows PCs in use. When one breaks, people either paste terminal commands they don't understand or install legacy "cleaner" utilities that run static, decade-old scripts: they can't reason about the actual problem, can't explain what they're doing, and can't undo it when they make things worse. The whole category trades on hope.
@@ -91,7 +97,7 @@ flowchart TD
 - snapshot before every fix · one-click undo
 
 ## Status
-**v1.7.9, shipping.** Live at **[simplefixai.com](https://simplefixai.com)**. Built: multi-tier diagnostic + repair engine, local-AI diagnosis with rule-based fallback, natural-language chat, snapshot/undo, background watchdog, reporting (incl. PDF), technician mode, installer-integrity verification, telemetry + conversion-funnel pipeline, and a signed CI/CD release pipeline.
+**Shipping.** Live at **[simplefixai.com](https://simplefixai.com)**. Built: multi-tier diagnostic + repair engine, local-AI diagnosis with rule-based fallback, natural-language chat, snapshot/undo, background watchdog, reporting (incl. PDF), technician mode, installer-integrity verification, telemetry + conversion-funnel pipeline, and a signed CI/CD release pipeline.
 
 ---
 
