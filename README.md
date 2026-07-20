@@ -2,6 +2,7 @@
 
 > AI-powered Windows repair that diagnoses the problem, applies the right fixes in the right order, explains every step in plain English, and makes every change reversible. Fully offline.
 
+[![Live](https://img.shields.io/badge/live-simplefixai.com-2ea44f)](https://simplefixai.com)
 ![Status](https://img.shields.io/badge/status-shipping%20%C2%B7%20v1.7.9-2ea44f)
 ![Patent](https://img.shields.io/badge/patent-provisional%20pending-3b5bdb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a66c2)
