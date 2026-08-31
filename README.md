@@ -35,6 +35,10 @@ Windows already ships with the tools to repair itself. SimpleFixAI is the reason
 
 > **In plain terms:** A local AI model runs on your own computer, with no internet needed, and works out what is wrong. Before it changes anything it saves a restore point, so you can put things back the way they were.
 
+![SimpleFixAI running fully offline on a clean Windows VM, greeting the user in plain English](assets/app-welcome.png)
+
+*Running on a clean Windows VM, fully offline: everything happens on your PC and nothing is sent to the cloud.*
+
 1. **Describe it or scan it**: type "my wifi isn't working," or hit Scan.
 2. **Diagnose**: collectors gather hundreds of system signals in well under a minute.
 3. **Plan the fix**: a local AI model selects the right repair modules and sequences them in a safe, dependency-aware order.
