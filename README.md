@@ -45,13 +45,13 @@ Windows already ships with the tools to repair itself. SimpleFixAI is the reason
 A **multi-tier repair engine** tries the safest fix first and escalates only if symptoms persist, each tier with its own snapshot. A background **watchdog** can monitor the machine and auto-resolve safe issues behind strict safety gates.
 
 ## Honest by design
-SimpleFixAI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. For a tool that touches people's machines, trustworthiness is the product.
+SimpleFixAI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. Every repair module is **validated in a clean VM before it ships**, with a **before/after evidence ledger** recording exactly what changed, so a fix earns its place by proof rather than assumption. For a tool that touches people's machines, trustworthiness is the product.
 
 ## The idea that makes it safe (and patent-pending)
 
 > **In plain terms:** The AI is not allowed to type its own commands. It can only pick from a set of pre-approved, tested fixes, so a bad instruction or a model mistake cannot harm your computer.
 
-The AI **never writes or runs raw commands.** It can only choose from an **extensive library of pre-written, safety-bounded, reversible repair modules**, and it must explain each step before it executes. The model decides *what* to do; a bounded layer controls *how*. A prompt-injection attempt or a model mistake therefore **cannot** damage the machine. This AI diagnostic-orchestration method is covered by a **provisional patent**.
+The AI **never writes or runs raw commands.** It can only choose from an **extensive library of pre-written, safety-bounded, reversible repair modules**, and it must explain each step before it executes. Its selection is emitted as **grammar-constrained JSON**, so the model's output is always a valid pick from the catalog, never free-form text that could be misread as a command. The model decides *what* to do; a bounded layer controls *how*. A prompt-injection attempt or a model mistake therefore **cannot** damage the machine. This AI diagnostic-orchestration method is covered by a **provisional patent**.
 
 ## How it's built
 
@@ -60,11 +60,11 @@ The AI **never writes or runs raw commands.** It can only choose from an **exten
 ```mermaid
 flowchart TD
     U["User: describe the problem · or click Scan"] --> C["Collectors gather hundreds of signals · &lt;1 min"]
-    C --> AI["Local LLM: diagnose · select modules in the correct order"]
+    C --> AI["Local LLM: diagnose · select modules in the correct order<br/>output is grammar-constrained JSON"]
     AI -->|selects from, never generates| LIB[("Large library of validated repair modules<br/>pre-written PowerShell · many categories")]
     AI --> SNAP["Mandatory snapshot per tier"]
     SNAP --> EXE["Execute fix · escalate honestly if needed"]
-    EXE --> V["Verify it worked"]
+    EXE --> V["Verify it worked · before/after evidence ledger"]
     V --> EXP["Explain in plain English"]
     EXE -. one-click .-> UNDO["Reversible undo"]
     subgraph SB ["Safety boundary, the AI cannot run arbitrary code"]
@@ -79,22 +79,23 @@ flowchart TD
 
 | Layer | Stack |
 |---|---|
-| Desktop shell | Tauri 2 + React 19 + Vite (~10 MB installer) |
+| Desktop shell | Tauri 2 (Rust core) + React 19 + Vite (~10 MB installer) |
 | Diagnostic engine | Python 3.11 (WMI, subprocess), shipped as a PyInstaller sidecar, no Python required for users |
 | Fix scripts | PowerShell 5.1 (ships with every Windows, zero deps) |
-| AI | Local GGUF model via llama.cpp, RAM-aware tiers, fully offline |
+| AI | Local GGUF model via llama.cpp, RAM-auto-selected tiers, grammar-constrained JSON output, fully offline |
 | State | SQLite WAL (snapshots, reports, watchdog) |
 | Cloud | Supabase + Cloudflare Workers + R2 (telemetry + releases only; not required to repair) |
-| CI/CD | GitHub Actions → signed Tauri build |
+| CI/CD | GitHub Actions → signed Tauri build · Ed25519-signed auto-updater · per-release SHA-256 checksums |
 
 ## By the numbers
-- An **extensive library** of repair modules across many categories
+- An **extensive library** of repair modules across many categories, each **VM-validated before it ships** with a **before/after evidence ledger**
 - **Thousands** of automated tests, plus a dedicated AI conversation eval harness and a UI test suite
 - multi-tier repair engine with honest, snapshot-per-tier escalation
 - background watchdog that auto-resolves safe issues behind safety gates
-- **RAM-aware** local AI model tiers · **100% offline**
+- **RAM-auto-selected** local AI model tiers · **grammar-constrained JSON** · **100% offline**
 - **~10 MB** installer · per-user install, no admin required
 - snapshot before every fix · one-click undo
+- tamper-evident releases: **Ed25519-signed auto-updater** · **per-release SHA-256 checksums**
 
 ## Status
 **Shipping.** Live at **[simplefixai.com](https://simplefixai.com)**. Built: multi-tier diagnostic + repair engine, local-AI diagnosis with rule-based fallback, natural-language chat, snapshot/undo, background watchdog, reporting (incl. PDF), technician mode, installer-integrity verification, telemetry + conversion-funnel pipeline, and a signed CI/CD release pipeline.
