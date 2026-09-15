@@ -12,7 +12,10 @@
 
 **Live:** [simplefixai.com](https://simplefixai.com)  ·  **Source is private by design**: this repo is a public showcase of the product and its architecture.
 
-![SimpleFixAI](assets/hero.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
+  <img alt="SimpleFixAI dashboard (light and dark)" src="assets/hero.png">
+</picture>
 
 ## Demo
 <video src="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo.mp4" poster="https://github.com/SFX-TECH/simplefixai-showcase/raw/main/assets/demo-poster.jpg" controls muted loop width="720"></video>
