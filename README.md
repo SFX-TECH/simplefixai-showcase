@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/status-shipping-2ea44f)
 ![Patent](https://img.shields.io/badge/patent-provisional%20pending-3b5bdb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a66c2)
-![Tests](https://img.shields.io/badge/tests-thousands%20passing-2ea44f)
+![Tests](https://img.shields.io/badge/tests-17%2C000%2B%20passing-2ea44f)
 ![AI](https://img.shields.io/badge/AI-local%20LLM%20%C2%B7%20offline-7a5cff)
 ![License](https://img.shields.io/badge/license-proprietary-8a8a8a)
 
@@ -93,7 +93,7 @@ flowchart TD
 
 ## By the numbers
 - An **extensive library** of repair modules across many categories, each **VM-validated before it ships** with a **before/after evidence ledger**
-- **Thousands** of automated tests, plus a dedicated AI conversation eval harness and a UI test suite
+- **More than 17,000** automated tests, plus a dedicated AI conversation eval harness and a UI test suite
 - multi-tier repair engine with honest, snapshot-per-tier escalation
 - background watchdog that auto-resolves safe issues behind safety gates
 - **RAM-auto-selected** local AI model tiers · **grammar-constrained JSON** · **100% offline**
