@@ -36,7 +36,7 @@ There are ~1.4 billion Windows PCs in use. When one breaks, people either paste 
 ## What it does
 Windows already ships with the tools to repair itself. SimpleFixAI is the reasoning layer that was missing.
 
-> **In plain terms:** SimpleFixAI reads your PC and works out what is wrong with rules written in code, and a local AI model on your own computer answers your questions in plain English. Before it changes anything it saves a safety snapshot, and many repairs can be put back with one click.
+> **In plain terms:** SimpleFixAI reads your PC and works out what is wrong with rules written in code, and an optional local AI model on your own computer answers your questions in plain English. Before it changes anything it saves a safety snapshot, and many repairs can be put back with one click.
 
 ![SimpleFixAI's first-run welcome screen in an earlier version, on a clean Windows VM; its wording has since changed](assets/app-welcome.png)
 
@@ -52,7 +52,7 @@ Windows already ships with the tools to repair itself. SimpleFixAI is the reason
 A **multi-tier repair engine** tries the safest fix first and escalates only if symptoms persist, each tier with its own snapshot. A background **watchdog** watches for problems and reports them to you; unattended repair is off by default, needs your opt-in, and never runs a repair silently.
 
 ## Honest by design
-SimpleFixAI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. Repair modules are **validated on a disposable Windows VM against seeded breakage**, with a **before/after evidence ledger** recording exactly what changed, so a fix earns its place by proof rather than assumption. For a tool that touches people's machines, trustworthiness is the product.
+SimpleFixAI reports **partial results** honestly instead of faking success, and when a problem is genuinely beyond what it can safely fix (for example, a Windows framework-binary corruption whose real remedy is an in-place upgrade), **it tells you and routes you to the correct fix** rather than running tiers that can't reach it. It makes **no cure-rate claim it cannot measure**. Repair fixers are being checked on a **disposable Windows VM against seeded breakage**, with a **before/after evidence ledger** recording exactly what changed, and no cure is claimed without that proof. For a tool that touches people's machines, trustworthiness is the product.
 
 ## The idea that makes it safe (and patent-pending)
 
@@ -68,13 +68,13 @@ The AI **never writes or runs raw commands.** Repairs come only from an **extens
 flowchart TD
     U["User: describe the problem · or click Scan"] --> C["Collectors gather hundreds of signals · &lt;1 min"]
     C --> R["Rules in code: diagnose · choose approved repairs in a safe order"]
-    R -->|chooses from, never generates| LIB[("Large library of validated repair modules<br/>pre-written PowerShell · many categories")]
+    R -->|chooses from, never generates| LIB[("Large library of approved repair modules<br/>pre-written PowerShell · many categories")]
     R --> ASK["In the chat: asks before every repair"]
     ASK --> SNAP["Mandatory snapshot per tier"]
     SNAP --> EXE["Execute fix · escalate honestly if needed"]
     EXE --> V["Check the result · before/after evidence ledger"]
     V --> EXP["Explain in plain English"]
-    AI["Local LLM: answers your questions in the chat"] -.-> EXP
+    AI["Local LLM: answers your questions in the chat"] -. chat answers .-> EXP
     EXE -. one click for many .-> UNDO["Tiered undo: full, partial or none"]
     subgraph SB ["Safety boundary, the AI cannot run arbitrary code"]
       R
@@ -94,11 +94,11 @@ flowchart TD
 | Fix scripts | PowerShell 5.1 (ships with every Windows, zero deps) |
 | AI | Optional local GGUF model via llama.cpp, RAM-auto-selected tiers, runs on the PC and writes the chat answers |
 | State | SQLite WAL (snapshots, reports, watchdog) |
-| Cloud | Supabase + Cloudflare Workers + R2 (usage and error reports, on by default and one switch turns them off, plus sign-in, feedback, updates and the model download; not required to repair) |
+| Cloud | Cloudflare Workers + R2 (usage report intake, downloads and updates), Supabase (usage tables, sign-up records and feedback), PostHog (product analytics), Sentry (UI error reports) and Hugging Face (model downloads); usage and error reports are on by default and one switch turns them off; none of it is required to repair |
 | CI/CD | GitHub Actions → Tauri build · Ed25519-signed auto-updater · per-release SHA-256 checksums (the installer is not code-signed yet) |
 
 ## By the numbers
-- An **extensive library** of repair modules across many categories, **validated on a disposable Windows VM** with a **before/after evidence ledger**
+- An **extensive library** of repair modules across many categories, with **behavioral checks on a disposable Windows VM** under way and a **before/after evidence ledger**
 - **More than 20,000** automated tests passing in the nightly run, plus a dedicated AI conversation eval harness and a UI test suite
 - multi-tier repair engine with honest, snapshot-per-tier escalation
 - background watchdog that reports problems; unattended repair is opt-in and never silent
