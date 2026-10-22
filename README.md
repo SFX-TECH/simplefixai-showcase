@@ -21,6 +21,8 @@
 
 ## See it live
 
+[![simplefixai.com, captured 2026-10-22](assets/site.png)](https://simplefixai.com)
+
 *The product is live at [simplefixai.com](https://simplefixai.com), free while in public beta.*
 
 ## The problem
