@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/status-shipping-2ea44f)
 ![Patent](https://img.shields.io/badge/patent-provisional%20pending-3b5bdb)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a66c2)
-![Tests](https://img.shields.io/badge/nightly%20tests-20%2C000%2B%20passing-2ea44f)
+![Tests](https://img.shields.io/badge/nightly%20tests-21%2C000%2B%20passing-2ea44f)
 ![AI](https://img.shields.io/badge/AI-local%20LLM%20%C2%B7%20on%20your%20PC-7a5cff)
 ![License](https://img.shields.io/badge/license-proprietary-8a8a8a)
 
@@ -90,7 +90,7 @@ flowchart TD
 
 ## By the numbers
 - An **extensive library** of repair modules across many categories, with **behavioral checks on a disposable Windows VM** under way and a **before/after evidence ledger**
-- **More than 20,000** automated tests passing in the nightly run, plus a dedicated AI conversation eval harness and a UI test suite
+- **More than 21,000** automated tests passing in the nightly run, plus a dedicated AI conversation eval harness and a UI test suite
 - multi-tier repair engine with honest, snapshot-per-tier escalation
 - background watchdog that reports problems; unattended repair is opt-in and never silent
 - **RAM-auto-selected** local AI model tiers · runs on your PC · diagnosis, undo and most repairs work offline
